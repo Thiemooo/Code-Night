@@ -1,6 +1,5 @@
 from threading import Thread
 import requests
-import json
 
 
 class Translate(Thread):
