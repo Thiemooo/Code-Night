@@ -1,6 +1,5 @@
 from threading import Thread
 import requests
-import json
 
 
 class Translate(Thread):
@@ -10,14 +9,13 @@ class Translate(Thread):
         self.words = {i: "" for i in words}
 
     def _en_to_de(self, word: str):
-        response = requests.get(
-            'https://api.mymemory.translated.net/get',
-            params={
-                'q': word,
-                'langpair': 'en|de'
+        response = requests.post(
+            'https://dict.deepl.com/english-german/search',
+            data={
+                'query': word,
             }
         )
-        self.words[word] = json.loads(response.text)["responseData"]["translatedText"]
+        self.words[word] = response.text.split("class='dictLink featured'>")[1].split("<")[0]
 
     def execute(self) -> list:
         threads = list()
@@ -29,3 +27,4 @@ class Translate(Thread):
             thread.join()
 
         return list(self.words.values())
+
