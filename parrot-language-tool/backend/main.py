@@ -7,12 +7,9 @@ gap_text = GapText()
 
 @app.route("/gap_text", methods=["GET"])
 def starting_url():
-
-    data = {
-        "text": gap_text.get_sentences()
-    }
-
-    return jsonify(data)
+    return jsonify(
+        gap_text.get_sentences()
+    )
 
 
 app.run(
