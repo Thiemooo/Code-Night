@@ -105,7 +105,11 @@ class GapText:
         if paragraph.count("<--->") != len(replaced_words):
             print()
 
-        translator = Translate(replaced_words)
+        translator = Translate(
+            words=replaced_words,
+            src="en",
+            dest="de"
+        )
         translated_wordlist = translator.execute()
         for index, translated_word in enumerate(translated_wordlist):
             paragraph = replace_at_n(
