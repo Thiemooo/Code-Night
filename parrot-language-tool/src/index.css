@@ -1,13 +1,14 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: 'Dosis';
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-image: radial-gradient(#03001e, #2e0000, #03001e);
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow: hidden;
 }

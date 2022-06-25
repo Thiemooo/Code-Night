@@ -1,0 +1,40 @@
+.card {
+  background-color: #1c4975;
+  color: white;
+  padding: 20px;
+  margin: 20px;
+  font-size: 2rem;
+}
+
+.card-text {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card button {
+  font-size: 2rem;
+  margin: 30px;
+}
+
+.userInput {
+  margin-left: 10px;
+  margin-right: 10px;
+  outline: none;
+  border: none;
+  height: 2rem;
+  font-size: 1.7rem;
+  transform: translateY(5px);
+  text-align: center;
+}
+
+b {
+  color: transparent;
+}
+
+.card-correct {
+  color: green;
+}
+
+.card-incorrect {
+  color: red;
+}

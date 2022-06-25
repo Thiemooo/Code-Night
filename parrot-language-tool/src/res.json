@@ -1,10 +1,4 @@
-[
-  {
-    "text": "I like <---> (Äpfel) more than oranges.",
-    "solutions": ["apples"]
-  },
-  {
-    "text": "I like to <---> (programmieren) advanced software that helps to learn <---> (Englisch).",
-    "solutions": ["code", "English"]
-  }
-]
+{
+  "text": "I like <---> (Äpfel) more than oranges. I like to <---> (programmieren) advanced software that helps to learn <---> (Englisch).",
+  "solutions": ["apples", "code", "English"]
+}
