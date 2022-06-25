@@ -1,7 +1,11 @@
 from flask import Flask, jsonify
 from gap_text import GapText
+from flask_cors import CORS
+
 
 app = Flask(__name__)
+CORS(app)
+
 gap_text = GapText()
 
 

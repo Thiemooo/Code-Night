@@ -6,7 +6,6 @@ function Sidebar() {
       <div className="sidebar">
         <button>Lückensatztraining</button>
         <button>Vokabeltrainer</button>
-        <button href="./Donation.js" target = "_blank">Donate here!</button>
       </div>
     );
   }

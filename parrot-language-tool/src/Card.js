@@ -1,5 +1,5 @@
 import gap_text from './res.json';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Card.css';
 
 function Card() {
@@ -8,12 +8,19 @@ function Card() {
   const [results, setResults] = useState([]);
   const [finished, setFinished] = useState(false);
   const [solution, setSolution] = useState(<></>);
+  const [_gapText, _setGapText] = useState(gap_text);
 
   useEffect(() => {
     // API-Aufruf
-    // ...
-
-    setAnswers(new Array(gap_text.solutions.length));
+    const response = fetch('http://127.0.0.1:5000/gap_text', {
+      method: 'GET',
+    }).then((res) => {
+      res.json().then((data) => {
+        console.log(data);
+        _setGapText(data);
+        setAnswers(new Array(data.solutions.length));
+      })
+    });
   }, []);
 
   useEffect(() => {
@@ -35,7 +42,7 @@ function Card() {
   function onSubmit() {
     const _results = new Array(answers.length);
     for (let i = 0; i < answers.length; i++) {
-      _results[i] = answers[i] === gap_text.solutions[i];
+      _results[i] = answers[i] === _gapText.solutions[i];
     }
     console.log(_results);
     setResults(_results);
@@ -47,11 +54,11 @@ function Card() {
     <div className='card-solution'>
       <div className='card-text'>
         { 
-          gap_text.text.split("<--->").map((item, index, array) => {
+          _gapText.text.split("<--->").map((item, index, array) => {
             if (index < array.length - 1) 
               return (
                 <>
-                  <p>{item}<u className={results[index] ? 'card-correct' : 'card-incorrect'}>{gap_text.solutions[index]}</u><b>-</b></p>
+                  <p>{item}<u className={results[index] ? 'card-correct' : 'card-incorrect'}>{_gapText.solutions[index]}</u><b>-</b></p>
                 </>
               )
             else return (
@@ -74,7 +81,7 @@ function Card() {
     <div className="card">
       <div className='card-text'>
         { 
-          gap_text.text.split("<--->").map((item, index, array) => {
+          _gapText.text.split("<--->").map((item, index, array) => {
             if (index < array.length - 1) 
               return (
                 <>
