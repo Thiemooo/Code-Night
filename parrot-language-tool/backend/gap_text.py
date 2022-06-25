@@ -107,8 +107,8 @@ class GapText:
 
         translator = Translate(
             words=replaced_words,
-            src="en",
-            dest="de"
+            #src="en",
+            #dest="de"
         )
         translated_wordlist = translator.execute()
         for index, translated_word in enumerate(translated_wordlist):
