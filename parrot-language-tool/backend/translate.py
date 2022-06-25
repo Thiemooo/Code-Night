@@ -10,14 +10,13 @@ class Translate(Thread):
         self.words = {i: "" for i in words}
 
     def _translate(self, word: str):
-        response = requests.get(
-            'https://api.mymemory.translated.net/get',
-            params={
-                'q': word,
-                'langpair': 'en|de'
+        response = requests.post(
+            'https://dict.deepl.com/english-german/search',
+            data={
+                'query': word,
             }
         )
-        self.words[word] = json.loads(response.text)["responseData"]["translatedText"]
+        self.words[word] = response.text.split("class='dictLink featured'>")[1].split("<")[0]
 
     def execute(self) -> list:
         threads = list()
